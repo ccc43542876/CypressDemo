@@ -21,5 +21,10 @@ pipeline {
         }
 
     }
+	 post {
+    always {
+      echo "generator test report"
+    }
+  }
    
 }
