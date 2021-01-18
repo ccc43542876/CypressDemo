@@ -1,21 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('pull package from git hub') {
             steps{
-                //bat 'npm run cy:verify'
+                //
 				git credentialsId: '15610fd1-6d7e-4741-ae66-16e674d9f433', url: 'https://github.com/ccc43542876/CypressDemo.git'
             }
         }
-         stage('test') {
+         stage('run test cases') {
            steps{
-             //bat 'npm run cypress:run'
+			 bat 'npm run cy:verify'
+             bat 'npm run cypress:run'
 			 echo 'test'
            }
         }
-         stage('deploy') {
+         stage('clean Environment') {
            steps{
-               echo 'deploy'
+               echo 'clean'
            }
         }
 
